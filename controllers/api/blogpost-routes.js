@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
   Blogpost.findAll({
     attributes: [
       'id',
-      'body',
       'title',
+      'summary',
       'user_id',
       'created_at',
     ],
@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
         'id',
-        'body',
+        'summary',
         'title',
         'user_id',
         'created_at',
@@ -79,7 +79,7 @@ router.post('/', withAuth, (req, res) => {
   // expects {title: 'Taskmaster goes public!', post_url: 'https://taskmaster.com/press', user_id: 1}
   Blogpost.create({
     title: req.body.title,
-    body: req.body.body,
+    summary: req.body.summary,
     user_id: req.session.user_id
   })
     .then(dbBlogpostData => res.json(dbBlogpostData))
@@ -94,7 +94,7 @@ router.put('/:id', withAuth, (req, res) => {
   Blogpost.update(
     {
         title: req.body.title,
-        body: req.body.body,
+        summary: req.body.summary,
     },
     {
       where: {

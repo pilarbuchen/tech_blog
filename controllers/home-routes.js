@@ -7,8 +7,8 @@ router.get('/', (req, res) => {
   Blogpost.findAll({
     attributes: [
         'id',
-        'body',
         'title',
+        'summary',
         'user_id',
         'created_at',
     ],
@@ -27,8 +27,8 @@ router.get('/', (req, res) => {
       }
     ]
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
+    .then(dbBlogPostData => {
+      const posts = dbBlogPostData.map(post => post.get({ plain: true }));
 
       res.render('homepage', {
         posts,
@@ -42,15 +42,15 @@ router.get('/', (req, res) => {
 });
 
 // get single post
-router.get('/post/:id', (req, res) => {
+router.get('/blogpost/:id', (req, res) => {
   Blogpost.findOne({
     where: {
       id: req.params.id
     },
     attributes: [
         'id',
-        'body',
         'title',
+        'summary',
         'user_id',
         'created_at',
     ],

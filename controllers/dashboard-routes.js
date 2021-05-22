@@ -12,8 +12,8 @@ router.get('/', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'body',
       'title',
+      'summary',
       'created_at',
       'user_id',
     ],
@@ -46,8 +46,8 @@ router.get('/edit/:id', withAuth, (req, res) => {
   Blogpost.findByPk(req.params.id, {
     attributes: [
         'id',
-        'body',
         'title',
+        'summary',
         'created_at',
         'user_id',
     ],
