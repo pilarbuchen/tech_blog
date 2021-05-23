@@ -1,9 +1,10 @@
 <article class="blogposts">
-    {{title}}
-    {{blog}}
+    <h1>{{title}}</h1>
+    <p>{{summary}}</p>
     <div class="meta">
         by {{user.username}} on {{format_date created_at}}
-        |
+        
         <a href="/blogpost/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+            <a href="/dashboard/edit/{{id}}" class="edit-link">Edit blog post</a>
     </div>
 </article>

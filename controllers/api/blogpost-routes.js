@@ -117,7 +117,7 @@ router.put('/:id', withAuth, (req, res) => {
 
 router.delete('/:id', withAuth, (req, res) => {
   console.log('id', req.params.id);
-  Post.destroy({
+  Blogpost.destroy({
     where: {
       id: req.params.id
     }
@@ -129,10 +129,6 @@ router.delete('/:id', withAuth, (req, res) => {
       }
       res.json(dbBlogpostData);
     })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
 });
 
 module.exports = router;

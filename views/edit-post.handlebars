@@ -9,11 +9,6 @@
             <input name="post-summary" type="text" value="{{post.summary}}" />
 
         </div>
-        <div>
-            {{format_date post.created_at}}
-            |
-            <a href="/blogpost/{{blogpost.id}}">{{blogpost.comments.length}} {{format_plural "comment" blogpost.comments.length}}</a>
-        </div>
         <button type="submit">Save post</button>
         <button type="button" class="delete-post-btn">Delete post</button>
     </form>
@@ -25,12 +20,12 @@
     </div>
 
     <div>
-        <button type="submit">add comment</button>
+        <button type="submit">Add Comment</button>
     </div>
 </form>
 
 {{> comments blogpost.comments}}
 
-<script src="/javascript/edit-post.js"></script>
-<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/edit-blogpost.js"></script>
+<script src="/javascript/delete-blogpost.js"></script>
 <script src="/javascript/comment.js"></script>
